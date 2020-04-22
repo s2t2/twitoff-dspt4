@@ -1,37 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Twitoff App</title>
-</head>
-<body>
+<!-- web_app/templates/books.html -->
 
-    <div class="container">
-    <div id="nav">
-        <h1><a href="/">My Web App</a></h1>
-        <ul>
-            <li><a href="/books">Books Page</a></li>
-            <li><a href="/books/new">New Book Form</a></li>
-        </ul>
-    </div>
-    <hr>
+{% extends "layout.html" %}
 
-    <h1>My Books Page</h1>
+{% block content %}
+
+    <h2>Welcome to the Books Page</h2>
 
     <p>{{ message }}</p>
 
-    <ul>
-    {% for book in books %}
-        <li>{{ book["title"] }}</li>
-    {% endfor %}
-    </ul>
+    {% if books %}
+        <ul>
+        {% for book in books %}
+            <li>{{ book["title"] }}</li>
+        {% endfor %}
+        </ul>
 
-    <div id="footer">
-        <hr>
-        &copy; Copyright 2019 Prof. MJ Rossetti |
-        <a href="https://github.com/prof-rossetti/">source</a>
-    </div>
+    {% else %}
+        <p>Books not found.</p>
+    {% endif %}
 
-</body>
-</html>
+{% endblock %}
