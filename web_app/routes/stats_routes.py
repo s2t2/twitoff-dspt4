@@ -15,3 +15,19 @@ def iris():
     result = str(clf.predict(X[:2, :]))
     print("PREDICTION", result)
     return result # todo: return as JSON
+
+# TODO: accept some inputs related to the iris training data (x values)
+@stats_routes.route("/stats/predict", methods=["POST"])
+def twitoff_predict():
+    print("PREDICT ROUTE...")
+    print("FORM DATA:", dict(request.form)) #> {'screen_name_a': 'elonmusk', 'screen_name_b': 's2t2', 'tweet_text': 'Example tweet text here'}
+    screen_name_a = request.form["screen_name_a"]
+    screen_name_b = request.form["screen_name_b"]
+    tweet_text = request.form["tweet_text"]
+    print(screen_name_a, screen_name_b, tweet_text)
+
+    # TODO: train a model
+
+    # TODO: make a prediction and return it
+
+    return "OK (TODO)"
